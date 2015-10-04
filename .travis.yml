@@ -8,6 +8,4 @@ env:
     secure: T3A5R5scsEK3+B+qehiHeKEgJOpBcLGFwrS2M4Uc8QoYzx8jJhczuAmvfnXjYm5oIKQUcftCR3im/m3rdqWx1jUs60HmqLD1Bg8ekqNk+q4INIFSWvdFoWYflmLBlOLhfT9bWjfhBp3oUySd+iJvn7GPnN9DQ427C4Bx3Hf4AI83nWJ4pf5W8zms+3zRjLzZiuD9CIE5of0AGilyg7TpWQ2qo1o3EpQFlr9DMD/xnS2UbbLrOjR7fVRGPzCqZUlZ4Z+u3QDRm0Y/wAOPmFxv3bYO9m5UoFWTQMlFj5UperGysbjmMRsYa4EKCUT/B/1OzRAvgGsKX6/f7lbU2GsqTclxWm+PrcA4g5mAp5HG4mPtS5eQVDv1/uKAtuGXdnLo8MrQT3xdhFAAsS7X9PlC+WNPm3SBN7kr9Mfb2QWWRQUJZJ7yUgfQP5YQ74FeDnMDYf3qJzHtBMl/7SwuHXx+5L44Jl0sRvK2mpfIX/obHQdritkRjpji7bEtGq0Jmcj4yvws+hYWSXjleE1lKvKqoxlfoI/Hbq1VmZs1TM+k1ro54POzAtZU77AigoDcymNpUx6gwE/H24U/K0vVdTGImZCRNfplP3RizlT860eFF9hMK4zSimqSrKSzEFayTz4v3lq0rO1/vtStuXO/jR0qozjFtQ+Arm9PLspfMWnOmt8=
 install: true
 script:
-  - ./gradlew clean test
-after_success:
-- ./gradlew bintrayUpload
+  - ./gradlew test jacocoTestReport && ./gradlew coveralls bintrayUpload
