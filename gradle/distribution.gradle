@@ -33,6 +33,9 @@ publishing {
             pom {
                 withXml {
                     def root = asNode()
+                    def scm = root.appendNode('scm')
+                    scm.appendNode('url', 'https://github.com/pivotal-chicago/java-library-gradle-travis-coveralls-bintray')
+
                     def issueManagement = root.appendNode('issueManagement')
                     issueManagement.appendNode('system', 'GitHub Issues')
                     issueManagement.appendNode('url', 'https://github.com/pivotal-chicago/java-library-gradle-travis-coveralls-bintray/issues')
