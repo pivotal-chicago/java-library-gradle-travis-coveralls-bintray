@@ -5,8 +5,8 @@ group = 'com.example'
 archivesBaseName = 'foo'
 version = '1.0'
 
-if (hasProperty('buildNumber')) {
-    version = "${version}.${buildNumber}"
+if (System.env.TRAVIS_BUILD_NUMBER) {
+    version = "${version}.${System.env.TRAVIS_BUILD_NUMBER}"
 }
 
 task sourcesJar(type: Jar) {
@@ -50,8 +50,8 @@ publishing {
 }
 
 ext {
-    bintrayUser = project.hasProperty('bintrayUser') ? project.bintrayUser : null
-    bintrayKey = project.hasProperty('bintrayKey') ? project.bintrayKey : null
+    bintrayUser = System.env.BINTRAY_USER ?: null
+    bintrayKey = System.env.BINTRAY_KEY ?: null
 }
 
 bintray {
