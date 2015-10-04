@@ -33,6 +33,10 @@ publishing {
             pom {
                 withXml {
                     def root = asNode()
+                    def issueManagement = root.appendNode('issueManagement')
+                    issueManagement.appendNode('system', 'GitHub Issues')
+                    issueManagement.appendNode('url', 'https://github.com/pivotal-chicago/java-library-gradle-travis-coveralls-bintray/issues')
+
                     def licenses = root.appendNode('licenses')
                     def license = licenses.appendNode('license')
                     license.appendNode('name', 'Apache License, Version 2.0')
